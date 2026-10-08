@@ -1,0 +1,275 @@
+diff --git a/node_modules/@react-native/virtualized-lists/Lists/VirtualizeUtils.js b/node_modules/@react-native/virtualized-lists/Lists/VirtualizeUtils.js
+index 2264507..71806ba 100644
+--- a/node_modules/@react-native/virtualized-lists/Lists/VirtualizeUtils.js
++++ b/node_modules/@react-native/virtualized-lists/Lists/VirtualizeUtils.js
+@@ -58,6 +58,50 @@ export function elementsThatOverlapOffsets(
+   return result;
+ }
+ 
++/**
++ * The mounted cells in `range` that cover the viewport, found from their
++ * measured frames, if the viewport starts in one of them.
++ */
++function mountedCellsInViewport(
++  visibleBegin: number,
++  visibleEnd: number,
++  range: {first: number, last: number, ...},
++  props: CellMetricProps,
++  listMetrics: ListMetricsAggregator,
++  zoomScale: number,
++): ?{first: number, last: number} {
++  const lastIndex = Math.min(range.last, props.getItemCount(props.data) - 1);
++  let left = Math.max(0, range.first);
++  let right = lastIndex;
++  while (left <= right) {
++    const mid = left + Math.floor((right - left) / 2);
++    const frame = listMetrics.getCellMetricsApprox(mid, props);
++    if (visibleBegin < frame.offset * zoomScale) {
++      right = mid - 1;
++    } else if (visibleBegin >= (frame.offset + frame.length) * zoomScale) {
++      left = mid + 1;
++    } else {
++      if (!frame.isMounted) {
++        return null;
++      }
++      let last = mid;
++      while (last < lastIndex) {
++        const next = listMetrics.getCellMetrics(last + 1, props);
++        if (
++          next == null ||
++          !next.isMounted ||
++          next.offset * zoomScale >= visibleEnd
++        ) {
++          break;
++        }
++        last++;
++      }
++      return {first: mid, last};
++    }
++  }
++  return null;
++}
++
+ /**
+  * Computes the number of elements in the `next` range that are new compared to the `prev` range.
+  * Handy for calculating how many new items will be rendered when the render window changes so we
+@@ -156,6 +200,42 @@ export function computeWindowedRenderLimits(
+     listMetrics,
+     zoomScale,
+   );
++  // An unmeasured cell is estimated from the current average cell length, but
++  // a spacer keeps the size it was rendered with. Once the average changes,
++  // the estimates for the cells in a spacer can overlap the rendered cells
++  // after it, and the search can land on them instead: after a large prepend
++  // under maintainVisibleContentPosition, that unmounts the cells on screen.
++  // When the search disagrees with a mounted cell's measured frame about
++  // where the viewport starts, use the mounted cells that cover it.
++  //
++  // REPRO ONLY: the `preferMeasuredCells` check. The proposed fix has no prop.
++  const mounted =
++    // $FlowFixMe[prop-missing]
++    props.preferMeasuredCells === true
++      ? mountedCellsInViewport(
++          visibleBegin,
++          visibleEnd,
++          prev,
++          props,
++          listMetrics,
++          zoomScale,
++        )
++      : null;
++  if (
++    mounted != null &&
++    first !== mounted.first &&
++    // At a boundary the search picks the earlier cell.
++    first !== mounted.first - 1
++  ) {
++    first = mounted.first;
++    last = Math.max(last ?? mounted.last, mounted.last);
++    if (overscanFirst != null) {
++      overscanFirst = Math.min(overscanFirst, first);
++    }
++    if (overscanLast != null) {
++      overscanLast = Math.max(overscanLast, last);
++    }
++  }
+   overscanFirst = overscanFirst == null ? 0 : overscanFirst;
+   first = first == null ? Math.max(0, overscanFirst) : first;
+   overscanLast = overscanLast == null ? itemCount - 1 : overscanLast;
+diff --git a/node_modules/@react-native/virtualized-lists/Lists/VirtualizedList.js b/node_modules/@react-native/virtualized-lists/Lists/VirtualizedList.js
+index 298331a..18b99d6 100644
+--- a/node_modules/@react-native/virtualized-lists/Lists/VirtualizedList.js
++++ b/node_modules/@react-native/virtualized-lists/Lists/VirtualizedList.js
+@@ -8,7 +8,11 @@
+  * @format
+  */
+ 
+-import type {CellMetricProps, ListOrientation} from './ListMetricsAggregator';
++import type {
++  CellMetricProps,
++  CellMetrics,
++  ListOrientation,
++} from './ListMetricsAggregator';
+ import type {ViewToken} from './ViewabilityHelper';
+ import type {
+   Item,
+@@ -641,7 +645,7 @@ class VirtualizedList extends StateSafePureComponent<
+     } else {
+       // If we have a pending scroll update, we should not adjust the render window as it
+       // might override the correct window.
+-      if (pendingScrollUpdateCount > 0) {
++      if (pendingScrollUpdateCount > 0 || this._pendingAnchorCorrection) {
+         return cellsAroundViewport.last >= getItemCount(data)
+           ? VirtualizedList._constrainToItemCount(cellsAroundViewport, props)
+           : cellsAroundViewport;
+@@ -722,18 +726,31 @@ class VirtualizedList extends StateSafePureComponent<
+     // first and last could be stale (e.g. if a new, shorter items props is passed in), so we make
+     // sure we're rendering a reasonable range here.
+     const itemCount = newProps.getItemCount(newProps.data);
+-    if (itemCount === prevState.renderMask.numCells()) {
+-      return prevState;
+-    }
+-
+-    let maintainVisibleContentPositionAdjustment: ?number = null;
+     const prevFirstVisibleItemKey = prevState.firstVisibleItemKey;
+     const minIndexForVisible =
+       newProps.maintainVisibleContentPosition?.minIndexForVisible ?? 0;
+     const newFirstVisibleItemKey =
+-      newProps.getItemCount(newProps.data) > minIndexForVisible
++      itemCount > minIndexForVisible
+         ? VirtualizedList._getItemKey(newProps, minIndexForVisible)
+         : null;
++    // React applies queued state updaters before getDerivedStateFromProps, so
++    // `_updateCellsToRender` may have already sized `renderMask` for the new
++    // data. An unchanged count then doesn't rule out a prepend, so with
++    // maintainVisibleContentPosition the key must be unchanged as well
++    // (react/react-native#58911).
++    //
++    // REPRO ONLY: gated behind the `detectBatchedPrepend` prop. Off, this is
++    // the stock early return.
++    if (
++      itemCount === prevState.renderMask.numCells() &&
++      (newProps.detectBatchedPrepend !== true ||
++        newProps.maintainVisibleContentPosition == null ||
++        newFirstVisibleItemKey === prevFirstVisibleItemKey)
++    ) {
++      return prevState;
++    }
++
++    let maintainVisibleContentPositionAdjustment: ?number = null;
+     if (
+       newProps.maintainVisibleContentPosition != null &&
+       prevFirstVisibleItemKey != null &&
+@@ -1242,6 +1259,9 @@ class VirtualizedList extends StateSafePureComponent<
+   _hasWarned: {[string]: boolean} = {};
+   _headerLength = 0;
+   _hiPriInProgress: boolean = false; // flag to prevent infinite hiPri cell limit update
++  // Set when the cell maintainVisibleContentPosition is anchored on moves, until
++  // the scroll event carrying native's correction for it.
++  _pendingAnchorCorrection: boolean = false;
+   _indicesToKeys: Map<number, string> = new Map();
+   _lastFocusedCellKey: ?string = null;
+   _nestedChildLists: ChildListCollection<VirtualizedList> =
+@@ -1331,6 +1351,8 @@ class VirtualizedList extends StateSafePureComponent<
+     cellKey: string,
+     cellIndex: number,
+   ): void => {
++    const anchorMetrics =
++      this._getMaintainVisibleContentPositionAnchor(cellIndex);
+     const layoutHasChanged = this._listMetrics.notifyCellLayout({
+       cellIndex,
+       cellKey,
+@@ -1339,6 +1361,18 @@ class VirtualizedList extends StateSafePureComponent<
+     });
+ 
+     if (layoutHasChanged) {
++      if (
++        anchorMetrics != null &&
++        this._listMetrics.getCellMetrics(cellIndex, this.props)?.offset !==
++          anchorMetrics.offset
++      ) {
++        // Native maintainVisibleContentPosition shifts the scroll offset by as
++        // much as this cell moved, but the scroll event reporting that arrives
++        // after this layout event. Until then the scroll offset is stale
++        // relative to the cell metrics, and a window computed from the two is
++        // off by the shift.
++        this._pendingAnchorCorrection = true;
++      }
+       this._scheduleCellsToRenderUpdate();
+     }
+ 
+@@ -1347,6 +1381,39 @@ class VirtualizedList extends StateSafePureComponent<
+     this._updateViewableItems(this.props, this.state.cellsAroundViewport);
+   };
+ 
++  /**
++   * The metrics of the cell at `cellIndex` if native
++   * `maintainVisibleContentPosition` is anchored on it: a mounted cell laid out
++   * across the start of the viewport.
++   *
++   * REPRO ONLY: gated behind the `awaitAnchorCorrection` prop so the stock and
++   * fixed behaviour can be compared in one app. The proposed fix has no prop.
++   */
++  _getMaintainVisibleContentPositionAnchor(cellIndex: number): ?CellMetrics {
++    const {data, getItemCount, getItemLayout, maintainVisibleContentPosition} =
++      this.props;
++    const {horizontal, rtl} = this._orientation();
++    if (
++      this.props.awaitAnchorCorrection !== true ||
++      maintainVisibleContentPosition == null ||
++      getItemLayout != null ||
++      // Native anchors on the first view whose far edge is past the scroll
++      // position, which in a horizontal RTL list is not this one.
++      (horizontal && rtl) ||
++      cellIndex >= getItemCount(data)
++    ) {
++      return null;
++    }
++    const metrics = this._listMetrics.getCellMetrics(cellIndex, this.props);
++    const {offset} = this._scrollMetrics;
++    return metrics != null &&
++      metrics.isMounted &&
++      metrics.offset <= offset &&
++      offset < metrics.offset + metrics.length
++      ? metrics
++      : null;
++  }
++
+   _onCellFocusCapture = (cellKey: string) => {
+     this._lastFocusedCellKey = cellKey;
+     if (ReactNativeFeatureFlags.deferFlatListFocusChangeRenderUpdate()) {
+@@ -1759,6 +1826,7 @@ class VirtualizedList extends StateSafePureComponent<
+       visibleLength,
+       zoomScale,
+     };
++    this._pendingAnchorCorrection = false;
+     if (this.state.pendingScrollUpdateCount > 0) {
+       this.setState<'pendingScrollUpdateCount'>(state => ({
+         pendingScrollUpdateCount: state.pendingScrollUpdateCount - 1,
+diff --git a/node_modules/@react-native/virtualized-lists/Lists/VirtualizedListProps.js b/node_modules/@react-native/virtualized-lists/Lists/VirtualizedListProps.js
+index f567595..16e0085 100644
+--- a/node_modules/@react-native/virtualized-lists/Lists/VirtualizedListProps.js
++++ b/node_modules/@react-native/virtualized-lists/Lists/VirtualizedListProps.js
+@@ -186,6 +186,22 @@ type OptionalVirtualizedListProps = {
+    * interfere with responding to button taps or other interactions.
+    */
+   maxToRenderPerBatch?: ?number,
++  /**
++   * REPRO ONLY: with maintainVisibleContentPosition, hold the render window
++   * while native's scroll correction for a move of the anchor cell is pending.
++   */
++  awaitAnchorCorrection?: ?boolean,
++  /**
++   * REPRO ONLY: react/react-native#58911, a prepend batched with a cells
++   * update isn't skipped.
++   */
++  detectBatchedPrepend?: ?boolean,
++  /**
++   * REPRO ONLY: when the window search over estimated cell offsets disagrees
++   * with a mounted cell's measured frame at the start of the viewport, use the
++   * mounted cells. The proposed fix has no prop.
++   */
++  preferMeasuredCells?: ?boolean,
+   /**
+    * Called once when the scroll position gets within within `onEndReachedThreshold`
+    * from the logical end of the list.
