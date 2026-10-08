@@ -1,0 +1,27 @@
+# S3-top-100-load-avg-t2 (verification app, final fixes + the fix, CPUs loaded): the fix pins the window to the rows on screen (MVCPVL A lines)
+10-08 00:01:37.767  MVCPLAB HOLDING {"label":"S3-top-100-load-avg-t2"}
+10-08 00:01:38.489  MVCPVL W 0..8->0..9 off=0 p=0 w=0 m[first]=0 avg=222
+10-08 00:01:40.166  MVCPVL W 0..9->0..10 off=0 p=0 w=0 m[first]=0 avg=216
+10-08 00:01:42.451  MVCPVL L i=0 -->0 len=101 off=0 anchor=0 w=0
+10-08 00:01:43.190  MVCPVL S off=23019 len=25368 p=1 w=0
+10-08 00:01:43.553  MVCPVL A pinned 77..80 -> 100..103 off=23019
+10-08 00:01:43.588  MVCPVL W 100..110->99..110 off=23019 p=0 w=0 m[first]=- avg=297
+10-08 00:01:44.178  MVCPVL L i=100 23019->31133 len=133 off=23019 anchor=1 w=1
+10-08 00:01:44.734  MVCPVL S off=31133 len=33482 p=0 w=1
+10-08 00:01:45.277  MVCPVL A pinned 85..87 -> 100..103 off=31133
+10-08 00:01:45.278  MVCPVL W 99..110->98..110 off=31133 p=0 w=0 m[first]=- avg=366
+10-08 00:01:46.201  MVCPVL L i=100 31133->37832 len=133 off=31133 anchor=1 w=1
+10-08 00:01:47.180  MVCPVL S off=37832 len=40181 p=0 w=1
+10-08 00:01:47.465  MVCPVL W 98..110->97..110 off=37832 p=0 w=0 m[first]=- avg=358
+10-08 00:01:48.472  MVCPVL L i=100 37832->36890 len=133 off=37832 anchor=1 w=1
+10-08 00:01:48.473  MVCPVL L i=104 38620->37678 len=194 off=37832 anchor=0 w=1
+10-08 00:01:49.559  MVCPVL S off=36890 len=39239 p=0 w=1
+10-08 00:01:49.888  MVCPVL W 97..110->96..110 off=36890 p=0 w=0 m[first]=- avg=351
+10-08 00:01:50.705  MVCPVL L i=100 36890->36073 len=133 off=36890 anchor=1 w=1
+10-08 00:01:50.974  MVCPVL L i=104 37678->36861 len=194 off=36890 anchor=0 w=1
+10-08 00:01:51.056  MVCPVL S off=36073 len=38422 p=0 w=1
+10-08 00:01:51.330  MVCPVL W 96..110->95..110 off=36073 p=0 w=0 m[first]=- avg=345
+10-08 00:01:51.331  MVCPVL W 95..110->95..111 off=36073 p=0 w=0 m[first]=- avg=345
+10-08 00:01:52.679  MVCPLAB RESULT {"n":2,"label":"S3-top-100-load-avg-t2","platform":"android","fixes":false,"final":true,"anchorRule":0,"clip":true,"trigger":"now","count":100,"fires":1,"verdict":"drifted","settledBy":"timeout","ms":11890,"anchor":"Post 1000","anchorHeight":133,"beforeY":0,"afterDrift":23018.7,"settledDrift":-543.3,"driftSource":"measured","maxAbsDrift":23018.7,"maxStep":23018.7,"jumpExcess":18325.2,"driftFromOffsets":-543.3,"insertedAbove":30622,"offsetBefore":0,"offsetAfter":36073.3,"offsetDelta":36073.3,"contentBefore":2157,"contentAfter":38422.3,"anchorMounted":true,"lostAtMs":null,"vl":[{"det":"shifted","shift":100,"pendingAtCommit":1,"anchorAtCommit":true,"firstEvent":"fresh y23018.7 h25367.7"}],"pendingMin":0,"oscillation":null}
+10-08 00:01:52.741  MVCPVL L i=100 36073->35530 len=133 off=36073 anchor=1 w=1
+10-08 00:01:52.742  MVCPVL L i=102 36315->35772 len=414 off=36073 anchor=0 w=1

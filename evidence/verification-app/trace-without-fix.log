@@ -1,0 +1,22 @@
+# S3-top-100-load-final-t1 (verification app, final fixes, no average fix): the window skips row 100 right after the correction
+10-07 20:59:07.850  MVCPLAB HOLDING {"label":"S3-top-100-load-final-t1"}
+10-07 20:59:10.643  MVCPVL L i=0 -->0 len=101 off=0 anchor=0 w=0
+10-07 20:59:10.993  MVCPVL S off=23449 len=27378 p=1 w=0
+10-07 20:59:11.070  MVCPVL W 100..117->84..87 off=23449 p=0 w=0 m[first]=- avg=278
+10-07 20:59:12.202  MVCPVL L i=84 -->23380 len=331 off=23449 anchor=0 w=0
+10-07 20:59:12.366  MVCPVL W 84..87->83..87 off=23449 p=0 w=0 m[first]=- avg=277
+10-07 20:59:12.797  MVCPVL L i=83 -->22991 len=509 off=23449 anchor=0 w=0
+10-07 20:59:12.801  MVCPVL L i=84 23380->23500 len=331 off=23449 anchor=1 w=1
+10-07 20:59:12.951  MVCPVL S off=23569 len=27498 p=0 w=1
+10-07 20:59:13.027  MVCPVL W 83..87->82..88 off=23569 p=0 w=0 m[first]=- avg=284
+10-07 20:59:13.947  MVCPVL L i=83 22991->23488 len=509 off=23569 anchor=0 w=0
+10-07 20:59:13.948  MVCPVL L i=84 23500->23997 len=331 off=23569 anchor=1 w=1
+10-07 20:59:14.133  MVCPVL S off=24066 len=27279 p=0 w=1
+10-07 20:59:14.167  MVCPVL W 82..88->81..89 off=24066 p=0 w=0 m[first]=- avg=277
+10-07 20:59:15.058  MVCPVL W 81..89->80..90 off=24066 p=0 w=0 m[first]=- avg=277
+10-07 20:59:15.386  MVCPVL L i=84 23997->23465 len=331 off=24066 anchor=1 w=1
+10-07 20:59:15.387  MVCPVL L i=85 24328->23796 len=467 off=24066 anchor=0 w=1
+10-07 20:59:15.703  MVCPVL S off=23535 len=27498 p=0 w=1
+10-07 20:59:15.780  MVCPVL W 80..90->79..91 off=23535 p=0 w=0 m[first]=- avg=281
+10-07 20:59:16.442  MVCPVL L i=83 22956->23149 len=509 off=23535 anchor=0 w=0
+10-07 20:59:16.453  MVCPVL L i=84 23465->23658 len=331 off=23535 anchor=1 w=1

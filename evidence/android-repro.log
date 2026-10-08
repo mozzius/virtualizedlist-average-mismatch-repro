@@ -1,0 +1,727 @@
+# Android emulator (API 35), Release build, PRs on, removeClippedSubviews off, four busy loops in the emulator.
+# 20 rounds with the fix off, then 10 with it on. Lines are the app's console output (logcat ReactNativeJS).
+Running "ReproducerApp"
+ +25657ms reset, PRs on, fix off
+ +37241ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +38286ms commit: window 100..131
+ +38314ms window 0..31 -> 100..131 (offset 300.0)
+ +38466ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +38923ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +39748ms window 100..131 -> 98..131 (offset 20938.3)
+ +40137ms window 98..131 -> 97..131 (offset 20938.3)
+ +40215ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +40250ms scroll y=21599.7 (dy=292.3) h=25289 (dh=292) correction
+ +40867ms window 97..131 -> 96..131 (offset 21599.7)
+ +40927ms scroll y=23130.0 (dy=1530.3) h=26819 (dh=1530) correction
+ +41125ms window 96..131 -> 95..131 (offset 23130.0)
+ +41161ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +41639ms window 95..131 -> 94..131 (offset 23673.7)
+ +41918ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +42820ms window 94..131 -> 93..131 (offset 23852.0)
+ +43177ms scroll y=24097.7 (dy=245.7) h=27787 (dh=246) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 1248, prevDt: 746, contentLength: 27786.666015625 }
+ +43523ms window 93..131 -> 92..131 (offset 24097.7)
+ +43614ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +45201ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +45204ms round 1/10: HELD
+ +45206ms reset, PRs on, fix off
+ +55416ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +56222ms commit: window 100..131
+ +56250ms window 0..31 -> 100..131 (offset 300.0)
+ +56339ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +56555ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +57067ms window 100..131 -> 98..131 (offset 20938.3)
+ +57172ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +57561ms window 98..131 -> 97..131 (offset 21307.3)
+ +57621ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+ +58042ms window 97..131 -> 96..131 (offset 22329.0)
+ +58298ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +59226ms window 96..131 -> 95..131 (offset 23130.0)
+ +59542ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 1137, prevDt: 621, contentLength: 27362.666015625 }
+ +60701ms window 95..131 -> 94..131 (offset 23673.7)
+ +61069ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +61895ms window 94..131 -> 93..131 (offset 23852.0)
+ +62191ms scroll y=24097.7 (dy=245.7) h=27787 (dh=246) correction
+ +64006ms window 93..131 -> 92..131 (offset 24097.7)
+ +64616ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +64617ms window 92..131 -> 91..131 (offset 24515.0)
+ +64819ms scroll y=24729.3 (dy=214.3) h=28418 (dh=214) correction
+ +65221ms window 91..131 -> 92..131 (offset 24729.3)
+ +65343ms scroll y=26381.3 (dy=1652.0) h=30070 (dh=1652) correction
+ +66948ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 10 corrections, window 92..131 -> HELD
+ +66948ms round 2/10: HELD
+ +66949ms reset, PRs on, fix off
+ +77222ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +79612ms commit: window 100..131
+ +79650ms window 0..31 -> 100..131 (offset 300.0)
+ +79788ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +83550ms window 100..131 -> 82..87 (offset 15366.0)
+ +83573ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 1176, prevDt: 11268, contentLength: 24627.333984375 }
+ +84644ms window 82..87 -> 140..144 (offset 20938.3)
+ +85311ms window 140..144 -> 124..125 (offset 20938.3)
+ +85562ms window 124..125 -> 0..1 (offset 20938.3)
+ +85707ms window 0..1 -> 0..3 (offset 20938.3)
+ +85753ms window 0..3 -> 0..5 (offset 20938.3)
+ +85908ms window 0..5 -> 0..7 (offset 20938.3)
+ +86046ms window 0..7 -> 0..9 (offset 20938.3)
+ +86355ms window 0..9 -> 0..11 (offset 20938.3)
+ +86609ms window 0..11 -> 0..12 (offset 20938.3)
+ +86990ms window 0..12 -> 0..14 (offset 20938.3)
+ +96417ms scroll y=20978.3 (dy=40.0) h=29731 (dh=5104)
+ +96921ms scroll y=21113.7 (dy=135.3) h=29867 (dh=135) correction
+ +100724ms scroll y=21856.7 (dy=743.0) h=30332 (dh=466)
+ +102836ms r1 mounted
+ +130024ms r1 UNMOUNTED
+ +131710ms settled: r1: -117.0pt -> not rendered. Top row now p74 at -5.3pt. 2 corrections, window 67..84 -> JUMPED
+ +131711ms round 3/10: JUMPED
+ +131713ms reset, PRs on, fix off
+ +146644ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +147574ms commit: window 100..131
+ +147641ms window 0..31 -> 100..131 (offset 300.0)
+ +147874ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +148251ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +148592ms window 100..131 -> 98..131 (offset 20938.3)
+ +148704ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +149248ms window 98..131 -> 97..131 (offset 21307.3)
+ +149427ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+ +149724ms window 97..131 -> 96..131 (offset 22329.0)
+ +149793ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +166424ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +166752ms scroll y=23721.0 (dy=47.3) h=27410 (dh=47) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 872, prevDt: 16077, contentLength: 27410 }
+ +167088ms scroll y=24097.7 (dy=376.7) h=27787 (dh=377) correction
+ +167971ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +169536ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +169536ms round 4/10: HELD
+ +169537ms reset, PRs on, fix off
+ +205742ms list never went idle
+ +205808ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..25
+ +208601ms commit: window 100..126
+ +208828ms window 0..25 -> 100..126 (offset 300.0)
+ +209212ms scroll y=15120.0 (dy=14820.0) h=18131 (dh=16919)
+ +209760ms scroll y=21558.3 (dy=6438.3) h=24569 (dh=6438) correction
+ +213928ms window 100..126 -> 99..126 (offset 21558.3)
+ +214156ms scroll y=21749.0 (dy=190.7) h=24760 (dh=191) correction
+ +214291ms window 99..126 -> 98..126 (offset 21749.0)
+ +214303ms scroll y=21913.3 (dy=164.3) h=24924 (dh=164) correction
+ +227062ms settled: r1: -117.0pt -> 960.7pt. Top row now p97 at -443.3pt. 3 corrections, window 97..126 -> JUMPED
+ +227063ms round 5/10: JUMPED
+ +227063ms reset, PRs on, fix off
+ +264562ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..26
+ +266239ms commit: window 100..127
+ +266282ms window 0..26 -> 100..127 (offset 300.0)
+ +266490ms scroll y=15183.7 (dy=14883.7) h=18307 (dh=17095)
+ +266915ms scroll y=21365.3 (dy=6181.7) h=24488 (dh=6182) correction
+ +267389ms window 100..127 -> 98..127 (offset 21365.3)
+ +267499ms scroll y=21724.7 (dy=359.3) h=24848 (dh=359) correction
+ +267934ms window 98..127 -> 97..127 (offset 21724.7)
+ +268014ms scroll y=22794.0 (dy=1069.3) h=25917 (dh=1069) correction
+ +268826ms window 97..127 -> 96..127 (offset 22794.0)
+ +269011ms scroll y=23631.3 (dy=837.3) h=26754 (dh=837) correction
+ +269377ms window 96..127 -> 95..127 (offset 23631.3)
+ +269848ms scroll y=24202.0 (dy=570.7) h=27325 (dh=571) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 914, prevDt: 882, contentLength: 27325 }
+ +271428ms window 95..127 -> 94..127 (offset 24202.0)
+ +272083ms window 94..127 -> 93..127 (offset 24202.0)
+ +272087ms scroll y=24374.0 (dy=172.0) h=27497 (dh=172) correction
+ +272764ms scroll y=24534.3 (dy=160.3) h=27657 (dh=160) correction
+ +286127ms scroll y=25033.3 (dy=499.0) h=28156 (dh=499) correction
+ +292957ms scroll y=25265.3 (dy=232.0) h=28657 (dh=501)
+ +295115ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..129 -> HELD
+ +295115ms round 6/10: HELD
+ +295116ms reset, PRs on, fix off
+ +322708ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..29
+ +328078ms commit: window 100..130
+ +328094ms window 0..29 -> 100..130 (offset 300.0)
+ +328232ms scroll y=15223.0 (dy=14923.0) h=18749 (dh=17537)
+ +328649ms scroll y=20990.3 (dy=5767.3) h=24516 (dh=5767) correction
+ +328899ms window 100..130 -> 99..130 (offset 20990.3)
+ +328947ms scroll y=21187.0 (dy=196.7) h=24713 (dh=197) correction
+ +329380ms window 99..130 -> 98..130 (offset 21187.0)
+ +329385ms scroll y=21770.3 (dy=583.3) h=25296 (dh=583) correction
+ +329860ms window 98..130 -> 97..130 (offset 21770.3)
+ +329942ms scroll y=22393.7 (dy=623.3) h=25920 (dh=623) correction
+ +330449ms window 97..130 -> 96..130 (offset 22393.7)
+ +330566ms scroll y=23204.7 (dy=811.0) h=26731 (dh=811) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 623, prevDt: 585, contentLength: 26730.666015625 }
+ +330844ms window 96..130 -> 95..130 (offset 23204.7)
+ +330903ms scroll y=23756.3 (dy=551.7) h=27282 (dh=552) correction
+ +331160ms window 95..130 -> 94..130 (offset 23756.3)
+ +331203ms scroll y=23934.7 (dy=178.3) h=27461 (dh=178) correction
+ +331694ms window 94..130 -> 93..130 (offset 23934.7)
+ +331871ms scroll y=24179.3 (dy=244.7) h=27705 (dh=245) correction
+ +332178ms window 93..130 -> 92..130 (offset 24179.3)
+ +332583ms window 92..130 -> 91..130 (offset 24179.3)
+ +332603ms scroll y=24599.7 (dy=420.3) h=28126 (dh=420) correction
+ +332712ms scroll y=24813.0 (dy=213.3) h=28339 (dh=213) correction
+ +342847ms settled: r1: -117.0pt -> 1523.7pt. Top row now p96 at -333.3pt. 10 corrections, window 92..131 -> JUMPED
+ +342902ms round 7/10: JUMPED
+ +342903ms reset, PRs on, fix off
+ +377211ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +378458ms commit: window 100..131
+ +378479ms window 0..31 -> 100..131 (offset 300.0)
+ +378614ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +379028ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +380014ms window 100..131 -> 98..131 (offset 20938.3)
+ +381475ms window 98..131 -> 97..131 (offset 20938.3)
+ +381496ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +382969ms scroll y=21599.7 (dy=292.3) h=25289 (dh=292) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 1511, prevDt: 1174, contentLength: 25288.666015625 }
+ +386536ms window 97..131 -> 96..131 (offset 21599.7)
+ +387355ms scroll y=23130.0 (dy=1530.3) h=26819 (dh=1530) correction
+ +387362ms scroll y=23208.7 (dy=78.7) h=26898 (dh=79) correction
+ +391586ms settled: r1: -117.0pt -> 526.3pt. Top row now p99 at -40.7pt. 5 corrections, window 94..131 -> JUMPED
+ +391593ms round 8/10: JUMPED
+ +391648ms reset, PRs on, fix off
+ +432425ms list never went idle
+ +432443ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..19
+ +436283ms commit: window 100..120
+ +436290ms window 0..19 -> 100..120 (offset 300.0)
+ +437007ms scroll y=14587.0 (dy=14287.0) h=16806 (dh=15594)
+ +437227ms scroll y=22629.0 (dy=8042.0) h=24848 (dh=8042) correction
+ +438493ms window 100..120 -> 98..120 (offset 22629.0)
+ +441074ms scroll y=22960.3 (dy=331.3) h=25179 (dh=331) correction
+ +441078ms window 98..120 -> 97..120 (offset 22960.3)
+ +441084ms scroll y=23234.0 (dy=273.7) h=25453 (dh=274) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 2264, prevDt: 1605, contentLength: 25453 }
+ +442882ms scroll y=25011.7 (dy=1777.7) h=27231 (dh=1778) correction
+ +445558ms scroll y=25626.7 (dy=615.0) h=27846 (dh=615) correction
+ +446407ms scroll y=25768.3 (dy=141.7) h=27987 (dh=142) correction
+ +447655ms scroll y=25963.7 (dy=195.3) h=28183 (dh=195) correction
+ +447883ms scroll y=26081.0 (dy=117.3) h=28300 (dh=117) correction
+ +449334ms scroll y=26628.7 (dy=547.7) h=29018 (dh=718)
+ +451200ms scroll y=26488.3 (dy=-140.3) h=29080 (dh=63)
+ +452523ms scroll y=25679.7 (dy=-808.7) h=28550 (dh=-531)
+ +458866ms scroll y=25620.3 (dy=-59.3) h=28631 (dh=82)
+ +462055ms scroll y=25465.3 (dy=-155.0) h=28588 (dh=-43)
+ +462420ms scroll y=25265.3 (dy=-200.0) h=28537 (dh=-51)
+ +463203ms scroll y=25138.3 (dy=-127.0) h=28530 (dh=-7)
+ +470933ms scroll y=24967.0 (dy=-171.3) h=28493 (dh=-37)
+ +471335ms scroll y=24826.0 (dy=-141.0) h=28515 (dh=22)
+ +473786ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +473800ms round 9/10: HELD
+ +473801ms reset, PRs on, fix off
+ +513939ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +516178ms commit: window 100..131
+ +516197ms window 0..31 -> 100..131 (offset 300.0)
+ +516389ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +516731ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +517192ms window 100..131 -> 98..131 (offset 20938.3)
+ +517239ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +517638ms window 98..131 -> 97..131 (offset 21307.3)
+ +517821ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 569, prevDt: 556, contentLength: 26018 }
+ +518517ms window 97..131 -> 96..131 (offset 22329.0)
+ +518701ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +519119ms window 96..131 -> 95..131 (offset 23130.0)
+ +519380ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +519387ms window 95..131 -> 94..131 (offset 23673.7)
+ +519572ms scroll y=23721.0 (dy=47.3) h=27410 (dh=47) correction
+ +520011ms window 94..131 -> 93..131 (offset 23721.0)
+ +520076ms scroll y=24097.7 (dy=376.7) h=27787 (dh=377) correction
+ +520622ms window 93..131 -> 92..131 (offset 24097.7)
+ +520942ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +522534ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +522534ms round 10/10: HELD
+ +522534ms Repeat, PRs on, fix off, 100 rows: 4/10 jumped
+ +667804ms reset, PRs on, fix on
+ +709913ms reset, PRs on, fix on
+ +733132ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix on, r1 at -117.0pt, window 0..29
+ +742766ms commit: window 100..130
+ +742814ms window 0..29 -> 100..130 (offset 300.0)
+ +744991ms scroll y=15223.0 (dy=14923.0) h=18749 (dh=17537)
+ +745043ms scroll y=20990.3 (dy=5767.3) h=24516 (dh=5767) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 1852, prevDt: 26751, contentLength: 24516.333984375 }
+ +745681ms scroll y=21187.0 (dy=196.7) h=24713 (dh=197) correction
+ +746247ms scroll y=21770.3 (dy=583.3) h=25296 (dh=583) correction
+ +748253ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 3 corrections, window 98..130 -> HELD
+ +748259ms round 1/10: HELD
+ +748260ms reset, PRs on, fix on
+ +766446ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix on, r1 at -117.0pt, window 0..21
+ +767868ms commit: window 100..122
+ +767892ms window 0..21 -> 100..122 (offset 300.0)
+ +768683ms scroll y=15147.3 (dy=14847.3) h=17652 (dh=16440)
+ +771214ms settled: r1: -117.0pt -> 7024.3pt. Top row now undefined at undefinedpt. 0 corrections, window 100..122 -> JUMPED
+ +771214ms round 2/10: JUMPED
+ +771214ms reset, PRs on, fix on
+ +816450ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix on, r1 at -117.0pt, window 0..31
+ +817804ms commit: window 100..131
+ +817824ms window 0..31 -> 100..131 (offset 300.0)
+ +817966ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +818323ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +819113ms window 100..131 -> 98..131 (offset 20938.3)
+ +819216ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +819969ms window 98..131 -> 97..131 (offset 21307.3)
+ +820243ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 966, prevDt: 924, contentLength: 26018 }
+ +820933ms window 97..131 -> 96..131 (offset 22329.0)
+ +821033ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +821280ms window 96..131 -> 95..131 (offset 23130.0)
+ +822059ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +822064ms window 95..131 -> 94..131 (offset 23673.7)
+ +822375ms scroll y=23721.0 (dy=47.3) h=27410 (dh=47) correction
+ +823071ms window 94..131 -> 93..131 (offset 23721.0)
+ +823264ms scroll y=24097.7 (dy=376.7) h=27787 (dh=377) correction
+ +823887ms window 93..131 -> 92..131 (offset 24097.7)
+ +823994ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +825559ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +825573ms round 3/10: HELD
+ +825574ms reset, PRs on, fix on
+ +835380ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix on, r1 at -117.0pt, window 0..31
+ +836525ms commit: window 100..131
+ +836536ms window 0..31 -> 100..131 (offset 300.0)
+ +836583ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +837001ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +837567ms window 100..131 -> 98..131 (offset 20938.3)
+ +837704ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +838217ms window 98..131 -> 97..131 (offset 21307.3)
+ +838332ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 635, prevDt: 718, contentLength: 26018 }
+ +838832ms window 97..131 -> 96..131 (offset 22329.0)
+ +839005ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +840817ms window 96..131 -> 95..131 (offset 23130.0)
+ +841238ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +842338ms window 95..131 -> 94..131 (offset 23673.7)
+ +842686ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +844028ms window 94..131 -> 93..131 (offset 23852.0)
+ +844196ms scroll y=24097.7 (dy=245.7) h=27787 (dh=246) correction
+ +845235ms window 93..131 -> 92..131 (offset 24097.7)
+ +845390ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +847313ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +847321ms round 4/10: HELD
+ +847322ms reset, PRs on, fix on
+ +861690ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix on, r1 at -117.0pt, window 0..31
+ +864552ms commit: window 100..131
+ +864642ms window 0..31 -> 100..131 (offset 300.0)
+ +864922ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +866863ms window 100..131 -> 98..131 (offset 15366.0)
+ +866875ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +867238ms window 98..131 -> 97..129 (offset 20938.3)
+ +867265ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +867841ms window 97..129 -> 96..129 (offset 21307.3)
+ +867850ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+ +867959ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +868747ms window 96..129 -> 95..129 (offset 23130.0)
+ +868999ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 1052, prevDt: 561, contentLength: 27362.666015625 }
+ +869167ms window 95..129 -> 94..129 (offset 23673.7)
+ +869544ms window 94..129 -> 93..129 (offset 23673.7)
+ +869624ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +869655ms scroll y=24018.7 (dy=166.7) h=27708 (dh=167) correction
+ +870378ms window 93..129 -> 92..129 (offset 24018.7)
+ +870699ms scroll y=24515.0 (dy=496.3) h=28204 (dh=496) correction
+ +871400ms window 92..129 -> 92..131 (offset 24515.0)
+ +871653ms scroll y=24738.7 (dy=223.7) h=28428 (dh=224) correction
+ +873716ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 9 corrections, window 92..131 -> HELD
+ +873716ms round 5/10: HELD
+ +873741ms reset, PRs on, fix on
+ +883515ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix on, r1 at -117.0pt, window 0..31
+ +885047ms commit: window 100..131
+ +885073ms window 0..31 -> 100..131 (offset 300.0)
+ +885211ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +885532ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +886799ms window 100..131 -> 98..131 (offset 20938.3)
+ +887177ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +888087ms window 98..131 -> 97..131 (offset 21307.3)
+ +888449ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 1228, prevDt: 1724, contentLength: 26018 }
+ +888972ms window 97..131 -> 96..131 (offset 22329.0)
+ +889149ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +889678ms window 96..131 -> 94..131 (offset 23130.0)
+ +889848ms scroll y=23721.0 (dy=591.0) h=27410 (dh=591) correction
+ +890510ms window 94..131 -> 93..131 (offset 23721.0)
+ +890668ms window 93..131 -> 92..131 (offset 23721.0)
+ +890727ms scroll y=24097.7 (dy=376.7) h=27787 (dh=377) correction
+ +891055ms scroll y=24237.7 (dy=140.0) h=27927 (dh=140) correction
+ +892576ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 7 corrections, window 92..131 -> HELD
+ +892576ms round 6/10: HELD
+ +892576ms reset, PRs on, fix on
+ +901521ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix on, r1 at -117.0pt, window 0..22
+ +905035ms commit: window 100..123
+ +905042ms window 0..22 -> 100..123 (offset 300.0)
+ +905224ms scroll y=15123.0 (dy=14823.0) h=17715 (dh=16503)
+ +905643ms scroll y=21985.7 (dy=6862.7) h=24578 (dh=6863) correction
+ +906056ms window 100..123 -> 99..123 (offset 21985.7)
+ +906091ms scroll y=22171.3 (dy=185.7) h=24763 (dh=186) correction
+ +906707ms window 99..123 -> 98..123 (offset 22171.3)
+ +906928ms scroll y=22798.3 (dy=627.0) h=25390 (dh=627) correction
+ +907419ms window 98..123 -> 97..123 (offset 22798.3)
+ +908295ms window 97..123 -> 96..123 (offset 22798.3)
+ +908316ms scroll y=23447.0 (dy=648.7) h=26039 (dh=649) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 743, prevDt: 749, contentLength: 26039 }
+ +908463ms scroll y=23692.3 (dy=245.3) h=26284 (dh=245) correction
+ +909260ms window 96..123 -> 95..123 (offset 23692.3)
+ +909543ms scroll y=24919.7 (dy=1227.3) h=27512 (dh=1227) correction
+ +910072ms window 95..123 -> 94..123 (offset 24919.7)
+ +910196ms scroll y=25078.3 (dy=158.7) h=27670 (dh=159) correction
+ +910774ms window 94..123 -> 93..123 (offset 25078.3)
+ +911093ms window 93..123 -> 92..123 (offset 25078.3)
+ +911136ms scroll y=25295.0 (dy=216.7) h=27887 (dh=217) correction
+ +911172ms scroll y=25420.3 (dy=125.3) h=28012 (dh=125) correction
+ +912157ms scroll y=25960.3 (dy=540.0) h=28635 (dh=623)
+ +912700ms scroll y=25679.7 (dy=-280.7) h=28550 (dh=-86)
+ +913343ms scroll y=25620.3 (dy=-59.3) h=28631 (dh=82)
+ +915002ms scroll y=25465.3 (dy=-155.0) h=28588 (dh=-43)
+ +916049ms scroll y=25265.3 (dy=-200.0) h=28537 (dh=-51)
+ +917033ms scroll y=25138.3 (dy=-127.0) h=28530 (dh=-7)
+ +917967ms scroll y=24826.0 (dy=-312.3) h=28515 (dh=-15)
+ +919624ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 9 corrections, window 92..131 -> HELD
+ +919633ms round 7/10: HELD
+ +919634ms reset, PRs on, fix on
+ +930097ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix on, r1 at -117.0pt, window 0..31
+ +931109ms commit: window 100..131
+ +931115ms window 0..31 -> 100..131 (offset 300.0)
+ +931203ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +931465ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +931907ms window 100..131 -> 98..131 (offset 20938.3)
+ +932250ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +932884ms window 98..131 -> 97..131 (offset 21307.3)
+ +933429ms window 97..131 -> 96..131 (offset 21307.3)
+ +933451ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 1054, prevDt: 857, contentLength: 26018 }
+ +934037ms scroll y=22587.0 (dy=258.0) h=26276 (dh=258) correction
+ +934945ms window 96..131 -> 95..131 (offset 22587.0)
+ +935204ms scroll y=23673.7 (dy=1086.7) h=27363 (dh=1087) correction
+ +935469ms window 95..131 -> 94..131 (offset 23673.7)
+ +936798ms window 94..131 -> 93..131 (offset 23673.7)
+ +937301ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +937307ms scroll y=24018.7 (dy=166.7) h=27708 (dh=167) correction
+ +938018ms window 93..131 -> 92..131 (offset 24018.7)
+ +938328ms scroll y=24515.0 (dy=496.3) h=28204 (dh=496) correction
+ +940246ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +940247ms round 8/10: HELD
+ +940248ms reset, PRs on, fix on
+ +955831ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix on, r1 at -117.0pt, window 0..31
+ +957883ms commit: window 100..131
+ +957895ms window 0..31 -> 100..131 (offset 300.0)
+ +957950ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +958132ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +958927ms window 100..131 -> 98..131 (offset 20938.3)
+ +960087ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +962083ms window 98..131 -> 97..131 (offset 21307.3)
+ +962260ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 2194, prevDt: 1842, contentLength: 26018 }
+ +962867ms window 97..131 -> 96..131 (offset 22329.0)
+ +963071ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +963775ms window 96..131 -> 95..131 (offset 23130.0)
+ +964136ms window 95..131 -> 94..131 (offset 23130.0)
+ +964147ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +964333ms scroll y=23721.0 (dy=47.3) h=27410 (dh=47) correction
+ +965116ms window 94..131 -> 93..131 (offset 23721.0)
+ +966068ms scroll y=24097.7 (dy=376.7) h=27787 (dh=377) correction
+ +966354ms scroll y=24237.7 (dy=140.0) h=27927 (dh=140) correction
+ +967938ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +967938ms round 9/10: HELD
+ +967938ms reset, PRs on, fix on
+ +978369ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix on, r1 at -117.0pt, window 0..31
+ +979225ms commit: window 100..131
+ +979247ms window 0..31 -> 100..131 (offset 300.0)
+ +979399ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +979923ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +980329ms window 100..131 -> 98..131 (offset 20938.3)
+ +980482ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +981040ms window 98..131 -> 97..131 (offset 21307.3)
+ +981450ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 954, prevDt: 687, contentLength: 26018 }
+ +982107ms window 97..131 -> 96..131 (offset 22329.0)
+ +982332ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +982922ms window 96..131 -> 95..131 (offset 23130.0)
+ +983517ms window 95..131 -> 94..131 (offset 23130.0)
+ +983587ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +983589ms scroll y=23721.0 (dy=47.3) h=27410 (dh=47) correction
+ +984389ms window 94..131 -> 93..131 (offset 23721.0)
+ +984482ms scroll y=24097.7 (dy=376.7) h=27787 (dh=377) correction
+ +985265ms window 93..131 -> 92..131 (offset 24097.7)
+ +985471ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +987092ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +987092ms round 10/10: HELD
+ +987092ms Repeat, PRs on, fix on, 100 rows: 1/10 jumped
+ +1030451ms reset, PRs on, fix off
+ +1052032ms reset, PRs on, fix off
+ +1063400ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +1065543ms commit: window 100..131
+ +1065574ms window 0..31 -> 100..131 (offset 300.0)
+ +1065696ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +1066177ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +1066450ms window 100..131 -> 99..131 (offset 20938.3)
+ +1066558ms scroll y=21136.0 (dy=197.7) h=24825 (dh=198) correction
+ +1066903ms window 99..131 -> 98..131 (offset 21136.0)
+ +1066959ms scroll y=21711.3 (dy=575.3) h=25400 (dh=575) correction
+ +1067434ms window 98..131 -> 97..131 (offset 21711.3)
+ +1067468ms scroll y=22329.0 (dy=617.7) h=26018 (dh=618) correction
+ +1068015ms window 97..131 -> 96..131 (offset 22329.0)
+ +1068100ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 613, prevDt: 591, contentLength: 26819 }
+ +1069068ms window 96..131 -> 95..131 (offset 23130.0)
+ +1069233ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +1069925ms window 95..131 -> 94..131 (offset 23673.7)
+ +1070175ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +1070684ms window 94..131 -> 93..131 (offset 23852.0)
+ +1070849ms scroll y=24097.7 (dy=245.7) h=27787 (dh=246) correction
+ +1071434ms window 93..131 -> 92..131 (offset 24097.7)
+ +1072116ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +1073685ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 9 corrections, window 92..131 -> HELD
+ +1073687ms round 1/10: HELD
+ +1073707ms reset, PRs on, fix off
+ +1090442ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +1091806ms commit: window 100..131
+ +1091831ms window 0..31 -> 100..131 (offset 300.0)
+ +1091956ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +1094705ms window 100..131 -> 82..87 (offset 15366.0)
+ +1094741ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 766, prevDt: 13000, contentLength: 24627.333984375 }
+ +1095714ms window 82..87 -> 140..144 (offset 20938.3)
+ +1096114ms window 140..144 -> 124..125 (offset 20938.3)
+ +1096218ms window 124..125 -> 0..1 (offset 20938.3)
+ +1096393ms window 0..1 -> 0..3 (offset 20938.3)
+ +1096509ms window 0..3 -> 0..5 (offset 20938.3)
+ +1096639ms window 0..5 -> 0..7 (offset 20938.3)
+ +1096734ms window 0..7 -> 0..9 (offset 20938.3)
+ +1096999ms window 0..9 -> 0..11 (offset 20938.3)
+ +1097214ms window 0..11 -> 0..12 (offset 20938.3)
+ +1097398ms window 0..12 -> 0..13 (offset 20938.3)
+ +1097836ms window 0..13 -> 0..15 (offset 20938.3)
+ +1098069ms window 0..15 -> 0..17 (offset 20938.3)
+ +1098457ms window 0..17 -> 0..19 (offset 20938.3)
+ +1098888ms window 0..19 -> 0..21 (offset 20938.3)
+ +1099452ms window 0..21 -> 73..74 (offset 20938.3)
+ +1099862ms window 73..74 -> 71..72 (offset 20938.3)
+ +1100369ms window 71..72 -> 71..75 (offset 20938.3)
+ +1101230ms scroll y=21195.0 (dy=256.7) h=23689 (dh=-938)
+ +1103124ms scroll y=21466.3 (dy=271.3) h=24762 (dh=1073)
+ +1103845ms scroll y=21713.0 (dy=246.7) h=29513 (dh=4751)
+ +1104217ms scroll y=21730.7 (dy=17.7) h=29530 (dh=18)
+ +1107327ms scroll y=21733.3 (dy=2.7) h=26717 (dh=-2814)
+ +1107686ms scroll y=21929.7 (dy=196.3) h=27314 (dh=597)
+ +1108027ms scroll y=22039.7 (dy=110.0) h=27851 (dh=537)
+ +1108466ms scroll y=22168.7 (dy=129.0) h=28329 (dh=478)
+ +1109264ms scroll y=22229.7 (dy=61.0) h=28765 (dh=436)
+ +1109912ms scroll y=22310.7 (dy=81.0) h=29100 (dh=335)
+ +1110497ms scroll y=22293.7 (dy=-17.0) h=29816 (dh=716)
+ +1111066ms scroll y=22433.0 (dy=139.3) h=30434 (dh=618)
+ +1111267ms scroll y=22589.3 (dy=156.3) h=30949 (dh=514)
+ +1111771ms scroll y=22648.7 (dy=59.3) h=39548 (dh=8600)
+ +1112573ms r1 mounted
+ +1113521ms scroll y=22726.3 (dy=77.7) h=39626 (dh=78) correction
+ +1126337ms scroll y=22436.7 (dy=-289.7) h=35459 (dh=-4167)
+ +1126772ms scroll y=22310.3 (dy=-126.3) h=35471 (dh=12)
+ +1127676ms scroll y=22207.7 (dy=-102.7) h=35560 (dh=89)
+ +1128927ms scroll y=22146.7 (dy=-61.0) h=35579 (dh=19)
+ +1130883ms scroll y=22006.3 (dy=-140.3) h=35523 (dh=-56)
+ +1133710ms scroll y=21760.3 (dy=-246.0) h=36135 (dh=612)
+ +1138373ms r1 UNMOUNTED
+ +1139923ms settled: r1: -117.0pt -> not rendered. Top row now p77 at -55.7pt. 2 corrections, window 69..86 -> JUMPED
+ +1139923ms round 2/10: JUMPED
+ +1139923ms reset, PRs on, fix off
+ +1153857ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +1157279ms commit: window 100..131
+ +1157287ms window 0..31 -> 100..131 (offset 300.0)
+ +1157350ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +1157573ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +1158099ms window 100..131 -> 98..131 (offset 20938.3)
+ +1158169ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +1158613ms window 98..131 -> 97..131 (offset 21307.3)
+ +1159124ms window 97..131 -> 96..131 (offset 21307.3)
+ +1159228ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 627, prevDt: 614, contentLength: 26018 }
+ +1159256ms scroll y=22587.0 (dy=258.0) h=26276 (dh=258) correction
+ +1159833ms window 96..131 -> 95..131 (offset 22587.0)
+ +1159909ms scroll y=23673.7 (dy=1086.7) h=27363 (dh=1087) correction
+ +1160487ms window 95..131 -> 94..131 (offset 23673.7)
+ +1160572ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +1160860ms window 94..131 -> 93..131 (offset 23852.0)
+ +1160935ms scroll y=24097.7 (dy=245.7) h=27787 (dh=246) correction
+ +1161180ms window 93..131 -> 92..131 (offset 24097.7)
+ +1161210ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +1162880ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +1162881ms round 3/10: HELD
+ +1162926ms reset, PRs on, fix off
+ +1182133ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +1185479ms commit: window 100..131
+ +1185649ms window 0..31 -> 100..131 (offset 300.0)
+ +1185946ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +1188254ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +1188295ms window 100..131 -> 82..87 (offset 20938.3)
+ +1188898ms window 82..87 -> 140..144 (offset 20938.3)
+ +1189128ms window 140..144 -> 124..125 (offset 20938.3)
+ +1189403ms window 124..125 -> 0..0 (offset 20938.3)
+ +1189518ms window 0..0 -> 0..2 (offset 20938.3)
+ +1189620ms window 0..2 -> 0..4 (offset 20938.3)
+ +1189724ms window 0..4 -> 0..6 (offset 20938.3)
+ +1189827ms window 0..6 -> 0..8 (offset 20938.3)
+ +1190007ms window 0..8 -> 0..10 (offset 20938.3)
+ +1190180ms window 0..10 -> 0..11 (offset 20938.3)
+ +1190516ms window 0..11 -> 0..13 (offset 20938.3)
+ +1190647ms window 0..13 -> 0..15 (offset 20938.3)
+ +1190989ms window 0..15 -> 0..17 (offset 20938.3)
+ +1191336ms window 0..17 -> 0..19 (offset 20938.3)
+ +1191923ms window 0..19 -> 0..21 (offset 20938.3)
+ +1194717ms scroll y=21086.7 (dy=148.3) h=24742 (dh=115)
+ +1195019ms scroll y=21477.7 (dy=391.0) h=24726 (dh=-16)
+ +1195647ms scroll y=21519.3 (dy=41.7) h=29513 (dh=4786)
+ +1196065ms scroll y=21537.0 (dy=17.7) h=29530 (dh=18)
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 507, prevDt: 551, contentLength: 29530.333984375 }
+ +1198548ms scroll y=21539.7 (dy=2.7) h=26717 (dh=-2814)
+ +1200653ms scroll y=21736.0 (dy=196.3) h=27314 (dh=597)
+ +1201915ms scroll y=21846.0 (dy=110.0) h=27851 (dh=537)
+ +1203167ms scroll y=21975.0 (dy=129.0) h=28329 (dh=478)
+ +1203986ms scroll y=22036.0 (dy=61.0) h=28765 (dh=436)
+ +1204979ms scroll y=22117.0 (dy=81.0) h=29380 (dh=615)
+ +1206783ms scroll y=22100.0 (dy=-17.0) h=29816 (dh=436)
+ +1208234ms scroll y=22239.3 (dy=139.3) h=30434 (dh=618)
+ +1208823ms scroll y=22395.7 (dy=156.3) h=30949 (dh=514)
+ +1211173ms scroll y=22455.0 (dy=59.3) h=39548 (dh=8600)
+ +1212223ms r1 mounted
+ +1212576ms scroll y=22532.7 (dy=77.7) h=39626 (dh=78) correction
+ +1226416ms scroll y=22243.0 (dy=-289.7) h=35459 (dh=-4167)
+ +1227902ms scroll y=22116.7 (dy=-126.3) h=35471 (dh=12)
+ +1228751ms scroll y=22014.0 (dy=-102.7) h=35560 (dh=89)
+ +1229359ms scroll y=21953.0 (dy=-61.0) h=35579 (dh=19)
+ +1230432ms scroll y=21812.7 (dy=-140.3) h=35523 (dh=-56)
+ +1231658ms scroll y=21566.7 (dy=-246.0) h=36135 (dh=612)
+ +1234671ms r1 UNMOUNTED
+ +1236214ms settled: r1: -117.0pt -> not rendered. Top row now p76 at -189.0pt. 2 corrections, window 69..86 -> JUMPED
+ +1236214ms round 4/10: JUMPED
+ +1236215ms reset, PRs on, fix off
+ +1246126ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +1248457ms commit: window 100..131
+ +1248532ms window 0..31 -> 100..131 (offset 300.0)
+ +1248738ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +1249216ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +1249704ms window 100..131 -> 99..131 (offset 20938.3)
+ +1250206ms scroll y=21136.0 (dy=197.7) h=24825 (dh=198) correction
+ +1250213ms window 99..131 -> 98..131 (offset 21136.0)
+ +1250291ms scroll y=21307.3 (dy=171.3) h=24996 (dh=171) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 535, prevDt: 555, contentLength: 24996.333984375 }
+ +1250951ms window 98..131 -> 97..131 (offset 21307.3)
+ +1251241ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+ +1251515ms window 97..131 -> 96..131 (offset 22329.0)
+ +1251582ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +1252127ms window 96..131 -> 95..131 (offset 23130.0)
+ +1252327ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +1252709ms window 95..131 -> 94..131 (offset 23673.7)
+ +1252938ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +1253187ms window 94..131 -> 93..131 (offset 23852.0)
+ +1253207ms scroll y=24097.7 (dy=245.7) h=27787 (dh=246) correction
+ +1253851ms window 93..131 -> 92..131 (offset 24097.7)
+ +1253907ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +1255498ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 9 corrections, window 92..131 -> HELD
+ +1255502ms round 5/10: HELD
+ +1255502ms reset, PRs on, fix off
+ +1266013ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +1267699ms commit: window 100..131
+ +1267785ms window 0..31 -> 100..131 (offset 300.0)
+ +1267907ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +1268918ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +1269517ms window 100..131 -> 98..131 (offset 20938.3)
+ +1269849ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +1270495ms window 98..131 -> 97..131 (offset 21307.3)
+ +1271341ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 825, prevDt: 1442, contentLength: 26018 }
+ +1271410ms window 97..131 -> 96..131 (offset 22329.0)
+ +1271485ms scroll y=22587.0 (dy=258.0) h=26276 (dh=258) correction
+ +1272160ms window 96..131 -> 95..131 (offset 22587.0)
+ +1272426ms scroll y=23673.7 (dy=1086.7) h=27363 (dh=1087) correction
+ +1272853ms window 95..131 -> 94..131 (offset 23673.7)
+ +1272866ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +1273242ms window 94..131 -> 93..131 (offset 23852.0)
+ +1273292ms scroll y=24097.7 (dy=245.7) h=27787 (dh=246) correction
+ +1273958ms window 93..131 -> 92..131 (offset 24097.7)
+ +1274045ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +1275647ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +1275648ms round 6/10: HELD
+ +1275655ms reset, PRs on, fix off
+ +1289791ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +1290829ms commit: window 100..131
+ +1290836ms window 0..31 -> 100..131 (offset 300.0)
+ +1290894ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +1291167ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +1291519ms window 100..131 -> 98..131 (offset 20938.3)
+ +1291607ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +1292232ms window 98..131 -> 97..131 (offset 21307.3)
+ +1292471ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+ +1292906ms window 97..131 -> 96..131 (offset 22329.0)
+ +1293237ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 610, prevDt: 889, contentLength: 26819 }
+ +1293842ms window 96..131 -> 95..131 (offset 23130.0)
+ +1294066ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +1294481ms window 95..131 -> 94..131 (offset 23673.7)
+ +1294589ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +1295047ms window 94..131 -> 93..131 (offset 23852.0)
+ +1295229ms scroll y=24097.7 (dy=245.7) h=27787 (dh=246) correction
+ +1295729ms window 93..131 -> 92..131 (offset 24097.7)
+ +1295883ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +1297483ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +1297483ms round 7/10: HELD
+ +1297484ms reset, PRs on, fix off
+ +1307449ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +1309955ms commit: window 100..131
+ +1309959ms window 0..31 -> 100..131 (offset 300.0)
+ +1310035ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +1310188ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +1310648ms window 100..131 -> 98..131 (offset 20938.3)
+ +1310764ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +1311043ms window 98..131 -> 97..131 (offset 21307.3)
+ +1311330ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 564, prevDt: 599, contentLength: 26018 }
+ +1311489ms window 97..131 -> 96..131 (offset 22329.0)
+ +1311491ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +1311713ms window 96..131 -> 95..131 (offset 23130.0)
+ +1311812ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +1311955ms window 95..131 -> 94..131 (offset 23673.7)
+ +1312019ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +1312229ms window 94..131 -> 93..131 (offset 23852.0)
+ +1312288ms scroll y=24097.7 (dy=245.7) h=27787 (dh=246) correction
+ +1312785ms window 93..131 -> 92..131 (offset 24097.7)
+ +1312983ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +1314536ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +1314542ms round 8/10: HELD
+ +1314542ms reset, PRs on, fix off
+ +1326075ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +1327416ms commit: window 100..131
+ +1327426ms window 0..31 -> 100..131 (offset 300.0)
+ +1327610ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17662)
+ +1327748ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +1328321ms window 100..131 -> 98..131 (offset 20938.3)
+ +1328522ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +1328922ms window 98..131 -> 97..131 (offset 21307.3)
+ +1329960ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+ +1329961ms window 97..131 -> 96..131 (offset 22329.0)
+ +1330321ms scroll y=22587.0 (dy=258.0) h=26276 (dh=258) correction
+ +1330650ms window 96..131 -> 95..131 (offset 22587.0)
+ +1330726ms scroll y=23673.7 (dy=1086.7) h=27363 (dh=1087) correction
+ +1331118ms window 95..131 -> 94..131 (offset 23673.7)
+ +1331175ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +1331602ms window 94..131 -> 93..131 (offset 23852.0)
+ +1331720ms scroll y=24097.7 (dy=245.7) h=27787 (dh=246) correction
+ +1332256ms window 93..131 -> 92..131 (offset 24097.7)
+ +1332436ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +1333992ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +1333996ms round 9/10: HELD
+ +1333997ms reset, PRs on, fix off
+ +1342380ms prepending 100 rows (37741pt) at y=300.0, PRs on, fix off, r1 at -117.0pt, window 0..31
+ +1343220ms commit: window 100..131
+ +1343228ms window 0..31 -> 100..131 (offset 300.0)
+ +1343343ms scroll y=15366.0 (dy=15066.0) h=19055 (dh=17843)
+ +1343617ms scroll y=20938.3 (dy=5572.3) h=24627 (dh=5572) correction
+ +1344415ms window 100..131 -> 98..131 (offset 20938.3)
+ +1344652ms scroll y=21307.3 (dy=369.0) h=24996 (dh=369) correction
+ +1345073ms window 98..131 -> 97..131 (offset 21307.3)
+ +1345243ms scroll y=22329.0 (dy=1021.7) h=26018 (dh=1022) correction
+'VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent, shouldComponentUpdate, etc.', { dt: 543, prevDt: 1023, contentLength: 26018 }
+ +1345834ms window 97..131 -> 96..131 (offset 22329.0)
+ +1345943ms scroll y=23130.0 (dy=801.0) h=26819 (dh=801) correction
+ +1346601ms window 96..131 -> 95..131 (offset 23130.0)
+ +1346750ms scroll y=23673.7 (dy=543.7) h=27363 (dh=544) correction
+ +1347247ms window 95..131 -> 94..131 (offset 23673.7)
+ +1347304ms scroll y=23852.0 (dy=178.3) h=27541 (dh=178) correction
+ +1347753ms window 94..131 -> 93..131 (offset 23852.0)
+ +1347871ms scroll y=24097.7 (dy=245.7) h=27787 (dh=246) correction
+ +1348269ms window 93..131 -> 92..131 (offset 24097.7)
+ +1348348ms scroll y=24515.0 (dy=417.3) h=28204 (dh=417) correction
+ +1349876ms settled: r1: -117.0pt -> -117.0pt. Top row now r1 at -117.0pt. 8 corrections, window 92..131 -> HELD
+ +1349891ms round 10/10: HELD
+ +1349891ms Repeat, PRs on, fix off, 100 rows: 2/10 jumped
+ +1575971ms reset, PRs on, fix on

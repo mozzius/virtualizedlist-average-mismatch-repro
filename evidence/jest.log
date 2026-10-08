@@ -1,0 +1,13 @@
+$ ~/Documents/Programming/virtualizedlist-average-mismatch-repro/ReproducerApp/node_modules/.bin/jest --no-watchman --verbose
+PASS __tests__/averageMismatch.test.tsx
+  ✓ stock: the window moves into the estimates and unmounts r0-r4 (140 ms)
+  ✓ fixed: the window keeps r0-r4, the rows on screen (3 ms)
+
+PASS __tests__/App.test.tsx
+  ✓ renders correctly (7 ms)
+
+Test Suites: 2 passed, 2 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        0.5 s, estimated 1 s
+Ran all test suites.
