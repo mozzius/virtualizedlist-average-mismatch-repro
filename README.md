@@ -7,8 +7,8 @@ window from that offset, but against estimated row positions that no longer
 match the spacer it rendered above the window. The window lands on rows above
 the viewport, the reader's row is unmounted, and the list jumps.
 
-- **Upstream issue:** ISSUE_URL
-- **Upstream fix:** PR_URL
+- **Upstream issue:** [react/react-native#58939](https://github.com/react/react-native/issues/58939)
+- **Upstream fix:** [react/react-native#58940](https://github.com/react/react-native/pull/58940)
 - **Found in:** the Bluesky app, which restores a feed position and then
   prepends up to 100 newer posts above the reader, often while the device is
   busy starting up
